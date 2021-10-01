@@ -132,3 +132,10 @@ class MaskedFacesClassifier:
             print("[INFO] Images folder is now clean...")
 
         return
+
+
+def MNMRun():
+    mask_detect = MaskedFacesClassifier()
+    mask_detect.images()
+    mask_detect.generate_video()
+    return

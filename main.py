@@ -1,6 +1,6 @@
 from src.skinCancer import SCprediction
 from src.yolo_object_detect import YOLO_Op
-from src.maskNonMask import MaskedFacesClassifier
+from src.maskNonMask import MNMRun
 
 
 def run():
@@ -14,7 +14,7 @@ def run():
             1. SkinCancer
             2. Mask Non Mask
             3. Yolo Localizer
-            5. Exit
+            4. Exit
 
             
             
@@ -26,14 +26,12 @@ def run():
                 SCprediction()
 
             if(inp == 2):
-                mask_detect = MaskedFacesClassifier()
-                mask_detect.images()
-                mask_detect.generate_video()
+                MNMRun()
 
             if(inp == 3):
                 YOLO_Op()
 
-            if (inp == 5):
+            if (inp == 4):
                 break
         except Exception as e:
             print(f"[INFO] Oops! An Error occurred restarting...")
