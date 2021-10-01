@@ -113,9 +113,9 @@ MODEL-POOL
     <td>Yolo Object Detection</td>
   </tr>
   <tr>
-    <td><img src="https://user-images.githubusercontent.com/56304060/135660421-f14906be-1a98-4082-910c-5aecb55d476c.gif" width=500 height=200></td>
-    <td><img src="https://user-images.githubusercontent.com/56304060/135671478-dcf2ff0d-20ae-44dd-b230-dbf2bd7d8141.gif" width=500 height=200></td>
     <td><img src="https://user-images.githubusercontent.com/56304060/135658725-315c6311-d175-4db2-ba8b-8476a205ac9a.gif" width=500 height=200></td>
+    <td><img src="https://user-images.githubusercontent.com/56304060/135671478-dcf2ff0d-20ae-44dd-b230-dbf2bd7d8141.gif" width=500 height=200></td>
+    <td><img src="https://user-images.githubusercontent.com/56304060/135660421-f14906be-1a98-4082-910c-5aecb55d476c.gif" width=500 height=200></td>
   </tr>
  </table>
 
