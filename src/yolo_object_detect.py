@@ -96,8 +96,8 @@ def YOLO_Op():
         print("[INFO] the following classes were predicted...")
         classes = [LABELS[d] for d in classIDs]
         confidence_percentage = [
-            f'{(round(100*d, 3))} + "%"' for d in confidences]
-        pprint(dict(zip(classes, confidences)))
+            f'{100*round(d, 3)} %' for d in confidences]
+        pprint(dict(zip(classes, confidence_percentage)))
         cv2.imwrite(f"{cfg['output']}", image)
         print("\n\n")
         print(f"Image is saved at this location - {cfg['output']}")

@@ -79,6 +79,9 @@ class MaskedFacesClassifier:
         self.video.release()
 
     def images(self):
+        if not os.path.exists(f'{params["images_folder"]}'):
+            os.mkdir(f'{params["images_folder"]}')
+            print("[INFO] Folder created...")
         while True:
             ret, frame = self.video.read()
 
@@ -125,11 +128,12 @@ class MaskedFacesClassifier:
         out.release()
 
         images_for_video = os.listdir(params["images_folder"])
+        print(f"[INFO] Generated video from {len(images_for_video)} frames...")
         if len(images_for_video) > 0:
-            for file in images_for_video:
-                if(file.endswith("jpg")):
-                    os.remove(os.path.join(params["images_folder"], file))
+            for file_ in images_for_video:
+                os.remove(os.path.join(params["images_folder"], file_))
             print("[INFO] Images folder is now clean...")
+            print(f"[INFO] Go here to see the video {params["video_folder"]+"/"+self.video_name}")
 
         return
 
