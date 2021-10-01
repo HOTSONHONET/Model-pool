@@ -93,12 +93,14 @@ def YOLO_Op():
                     cv2.putText(image, text, (x, y-5),
                                 cv2.FONT_HERSHEY_COMPLEX, 0.5, color, 2)
 
-            print("[INFO] the following classes were predicted...")
-            classes = [LABELS[d] for d in classIDs]
-            pprint(dict(zip(classes, confidences)))
-            cv2.imwrite(f"{cfg['output']}", image)
-            print("\n\n")
-            print(f"Image is saved at this location - {cfg['output']}")
+        print("[INFO] the following classes were predicted...")
+        classes = [LABELS[d] for d in classIDs]
+        confidence_percentage = [
+            f'{(round(100*d, 3))} + "%"' for d in confidences]
+        pprint(dict(zip(classes, confidences)))
+        cv2.imwrite(f"{cfg['output']}", image)
+        print("\n\n")
+        print(f"Image is saved at this location - {cfg['output']}")
     else:
         print("[INFO] Image is not allowed")
 

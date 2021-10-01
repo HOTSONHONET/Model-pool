@@ -78,9 +78,10 @@ def SCprediction():
         prediction = model.predict(img)
 
         for i in range(len(classes)):
-            result[classes[i]] = str(prediction[0][i])
+            result[classes[i]] = str(round(100*prediction[0][i], 3)) + "%"
 
         result['success'] = True
+        result['Predicted_Class'] = f"{classes[np.argmax(prediction[0])]}"
         pprint(result)
 
     else:
