@@ -105,8 +105,7 @@ MODEL-POOL
             Melanoma.jpg
             Vascular lesions.png
 ```
-# Sample Images
-# Sample Images 😉
+# Sample Images 📸😉
 <table>
   <tr>
     <td>Skin Cancer Classification</td>
