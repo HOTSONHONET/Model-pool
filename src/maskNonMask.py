@@ -9,14 +9,18 @@ import os
 import json
 import imutils
 
-
-with open("config.json", 'r') as file:
-    params = json.load(file)["Params"]
-
+# Config
+params = {}
+params['face_detector_prototxt'] = "src/Resources/face_detector/deploy.prototxt"
+params['face_detector_model'] = "src/Resources/face_detector/res10_300x300_ssd_iter_140000.caffemodel"
+params["mask_detector"] = "src/Resources/MaskedFacesClassifier"
+params["images_folder"] = "Output folder/collectImages/"
+params["video_folder"] = "Output folder/"
 
 faceNet = cv2.dnn.readNet(
-    params["facenet_prototxt"], params["facenet_weights"])
-maskNet = load_model(params["maskedVsUnmasked_weights"])
+    params['face_detector_prototxt'], params['face_detector_model'])
+
+maskNet = load_model(params["mask_detector"])
 
 
 def detect_and_predict_mask(frame, faceNet, maskNet):
@@ -57,10 +61,13 @@ def detect_and_predict_mask(frame, faceNet, maskNet):
 class MaskedFacesClassifier:
 
     def __init__(self):
-        self.video = os.path.join(
-            params["upload_folder"], os.listdir(params["upload_folder"])[0])
+        print("""
+            Welcome to Face Mask Detector
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
+        """)
+        path = input("Enter the video path: ")
+        self.video = os.path.join(path)
         self.video = cv2.VideoCapture(self.video)
-        # self.predictor = dlib.shape_predictor(params["dlib_68_face_landmarks"])
         self.font = cv2.FONT_HERSHEY_SIMPLEX
         self.image_folder = params["images_folder"]
         self.video_folder = params["video_folder"]
@@ -116,3 +123,12 @@ class MaskedFacesClassifier:
         for i in range(len(frame_arrays)):
             out.write(frame_arrays[i])
         out.release()
+
+        images_for_video = os.listdir(params["images_folder"])
+        if len(images_for_video) > 0:
+            for file in images_for_video:
+                if(file.endswith("jpg")):
+                    os.remove(os.path.join(params["images_folder"], file))
+            print("[INFO] Images folder is now clean...")
+
+        return
