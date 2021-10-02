@@ -1,7 +1,7 @@
 # Model-pool ⛵
 - It is a collections of all the models that I have created or fine-tuned.
 - You can access the weight file by clicking [⚖🏋here🏋⚖](https://drive.google.com/drive/folders/1-IVdOHjcVkgDws0A3LLIV9gZg2oBSAlU?usp=sharing)
-- Right now it is in incomplete stage but stay tune to more of it 😁
+- Right now it is in incomplete stage but stay tune to see more of it 😁
 
 # How to use it ? 🤔
 - Download and install appropriate version of [git](https://git-scm.com/downloads) and [python 3.7+](https://www.python.org/downloads/release/python-378/) in your pc 
